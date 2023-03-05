@@ -30,7 +30,7 @@ public class Cube : MonoBehaviour
         StartCoroutine(CubeCouratine());
         StartCoroutine(CubeSpeedCouratine());
     }
-
+    
     private void Update()
     {
         if (isMove)
