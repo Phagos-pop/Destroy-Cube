@@ -33,13 +33,13 @@ public class CubeSpawner : MonoBehaviour
     {
         var cube = Instantiate(prefab, GetRandomPosition(), Quaternion.identity);
         cubes.Add(cube);
-        cube.DeadCubeEvent += Cube_DeadCubeEvent;
+        cube.cubeInteractor.DeadCubeEvent += Cube_DeadCubeEvent;
     }
 
     private void Cube_DeadCubeEvent(Cube cube)
     {
         DeadCubeEvent?.Invoke();
-        cube.DeadCubeEvent -= Cube_DeadCubeEvent;
+        cube.cubeInteractor.DeadCubeEvent -= Cube_DeadCubeEvent;
         cubes.Remove(cube);
         Destroy(cube.gameObject);
         StartCoroutine(SpawnCouratine());
